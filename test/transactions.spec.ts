@@ -83,6 +83,35 @@ describe('Transactions routes', () => {
     )
   })
 
+  it('it should be able to change the transaction', async () => {
+    const createTransactionResponse = await request(app.server)
+      .post('/transactions')
+      .send({
+        title: 'Credit Transaction',
+        amount: 5000,
+        type: 'credit',
+      })
+
+    const cookies = createTransactionResponse.get('Set-Cookie')
+
+    const listTransactionsResonse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookies)
+      .expect(200)
+
+    const transactionId = listTransactionsResonse.body.transactions[0].id
+
+    await request(app.server)
+      .put(`/transactions/${transactionId}`)
+      .set('Cookie', cookies)
+      .send({
+        title: 'Change transaction to debit',
+        amount: 1000,
+        type: 'debit',
+      })
+      .expect(200)
+  })
+
   it('it should be able to get the summary', async () => {
     const createTransactionResponse = await request(app.server)
       .post('/transactions')
