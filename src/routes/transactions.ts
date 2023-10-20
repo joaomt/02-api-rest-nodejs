@@ -98,4 +98,34 @@ export async function transactionsRoutes(app: FastifyInstance) {
 
     return response.status(201).send()
   })
+
+  app.put('/:id', async (request, response) => {
+    const { sessionId } = request.cookies
+
+    const getTransactionParamSchem = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getTransactionParamSchem.parse(request.params)
+
+    const putTransactionBodySchema = z.object({
+      title: z.string(),
+      amount: z.number(),
+      type: z.enum(['credit', 'debit']),
+    })
+
+    const { title, amount, type } = putTransactionBodySchema.parse(request.body)
+
+    await knex('transactions')
+      .update({
+        title,
+        amount: type === 'credit' ? amount : amount * -1,
+      })
+      .where({
+        session_id: sessionId,
+        id,
+      })
+
+    return response.status(200).send()
+  })
 }
