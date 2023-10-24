@@ -1,0 +1,27 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "company.superplayer.imaginaso.debug",
+    "sha256_cert_fingerprints":
+    ["90:FA:56:E7:D9:41:D3:F2:84:C3:2E:FE:FE:B3:69:C0:69:8B:57:BC:34:A5:8C:0C:EC:73:4D:4C:61:36:B5:A3"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "company.superplayer.imaginaso.alpha",
+    "sha256_cert_fingerprints":
+      ["37:A2:19:04:F3:4E:06:EC:DE:D2:86:0F:54:E0:C5:6F:7B:33:13:E1:CB:7A:B9:E2:FB:FD:13:24:FE:77:61:EE"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "company.superplayer.imaginaso",
+    "sha256_cert_fingerprints":
+      ["B9:F3:F2:16:AD:E5:70:10:E8:21:EC:E3:47:E4:98:03:D9:2A:15:8C:7F:CE:29:71:CF:73:29:26:6C:C4:92:07"]
+  }
+}]
