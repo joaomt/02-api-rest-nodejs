@@ -1,0 +1,28 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+            "8XU259RJ55.company.superplayer.imaginaso",
+            "8XU259RJ55.company.superplayer.imaginaso.dev",
+            "8XU259RJ55.company.superplayer.imaginaso.alpha"
+        ],
+        "components": [
+          {
+            "/": "/mobile/*",
+            "comment": "Matches any URL with a path that starts with /mobile/."
+          },
+          {
+            "/": "/subscriptionPlans",
+            "comment": "Matches any URL with a path that starts with /subscriptionPlans."
+          },
+          {
+            "/": "/website/*",
+            "exclude": true,
+            "comment": "Matches any URL with a path that starts with /website/ and instructs the system not to open it as a universal link."
+          }
+        ]
+      }
+    ]
+  }
+}
